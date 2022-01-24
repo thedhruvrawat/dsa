@@ -8,5 +8,6 @@ This repository contains all the laboratory coursework for the course **CS F211:
 | Lab | Topic | Lab Sheet | Date |
 | ------------- | ------------- | --- | -- |
 | 1  | Splitting your program in multiple files | [Lab 1](lab-1/labsheet.pdf) | 22 Jan 2022 |
+| 2  | Command Line Arguments, Compiling and Linking C files, File I/O, Pointers, Linked Lists | [Lab 2](lab-2/labsheet.pdf) | 29 Jan 2022 |
 
 
