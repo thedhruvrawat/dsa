@@ -11,7 +11,7 @@ void insertFirst(struct linkedList *head, int ele) {
     link->next = head->first;
     //point first to new first node
     head->first = link;
-    head->count--;
+    head->count++;
 }
 
 //delete first item

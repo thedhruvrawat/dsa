@@ -3,26 +3,35 @@
 #include <time.h>
 int heapSpace = 0;
 
-int* myalloc(int space) {
-    heapSpace += space;
-    return (int*)malloc(space);
+void* myalloc(int space) {
+    int *p = (int *)malloc(sizeof(int) + space);
+    if(p!=NULL) {
+        p[0] = space;
+        heapSpace += space;
+        p++;
+        return (void*)p;
+    }
+    return (void*)p;
 }
 
-void myfree(int *p, int M) {
-    heapSpace -= sizeof(p);
-    free(p);
+void myfree(void *p) {
+    int *temp = (int *)p;
+    temp--;
+    heapSpace -= *temp;
+    free(temp);
 }
 
 int main() {
     srand(time(0));
     int M=(rand() % 15001) + 10000;
-    // for (int i = 0; i<20; i++)
-    // printf("%d\n", M);
-    int *A;
-
-    while(A = myalloc(M)) {
+    int *A = (int*)myalloc(M);
+    heapSpace -= M;
+    while (A != NULL)
+    {
         M = (rand() % 15001) + 10000;
-        printf("M is: %d, HEAP SIZE is %d, Address of A[0]: %u and A[M-1]: %u\n", M, heapSpace, &A[0], &A[M-1]);
-        myfree(A,M);
+        A = (int*)myalloc(M);
+        printf("&A[0]: %u\t&A[M-1]: %u\n", &A[0], &A[M-1]);
+        myfree(A);
     }
+    myfree(A);
 }
