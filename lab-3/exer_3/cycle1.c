@@ -1,38 +1,28 @@
 // Hare and Tortoise Algorithm
 #include "cycle.h"
-#include <sys/time.h>
 
 int isAhead(NODE a, NODE b) {
-    while(b->next!=NULL) {
-        if(b==a)
-            return 1;       //If a is ahead of b, return 1
-        b = b->next;
-    }
+    if(b==a && b!=NULL && a!=NULL)
+        return 1;       //If a is ahead of b, return 1
     return 0;
 }
 
-int main() {
-    struct timeval t1, t2;
-    double elapsedTime;
-
-    gettimeofday(&t1, NULL);
-    srand(time(0));
-    LIST myList = createList(1000000);
-    myList = createCycle(myList);
-    NODE hare, tort;
-    hare = myList->first;
-    tort = myList->first;
-    while(!isAhead(tort,hare)) {
-        tort = tort->next;
-        hare = hare->next->next;
-    }
-    gettimeofday(&t2, NULL);
-
-    elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
-    elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;
-    printf("Total time is: %f ms. and heap is %lld", elapsedTime, heapSpace);
-    // int k = isAhead(tort, hare);
-    // printf("%d %d", tort->element, hare->element);
-    // printf("%d", k);
+int testCyclic(LIST Ls) {
+    if(Ls->count < 2) return 0;	
+	else if(Ls->count == 2) {
+		NODE first = Ls->first;
+		NODE second = first->next;
+		if(second->next != first) return 0;
+	} else {
+        NODE hare, tort;
+        hare = Ls->first;
+        tort = Ls->first;
+        while(hare!=tort || hare!=NULL) {
+            if(tort->next == NULL || (hare->next == NULL) || (hare -> next) -> next == NULL) return 0;	
+            tort = tort -> next;
+            hare = (hare -> next) -> next;
+            if(hare == tort && hare!=NULL && tort!=NULL) return 1;
+        }
+    }   
     return 0;
 }

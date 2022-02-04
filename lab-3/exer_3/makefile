@@ -3,12 +3,13 @@ CC=gcc
 #CC=gcc -pg
 LFLAGS = -lm
 FILENAME:=  $(patsubst %.c,%.o,$(wildcard *.c))
-all: $(FILENAME) cycle1.exe
+all: $(FILENAME) cycle.exe
 %.o: %.c
 	$(CC) -c -g -Wall $< -o $@ $(LFLAGS)
-cycle1.exe: cycle1.o 	
-	$(CC) -g -Wall *.o -o $@ $(LFLAGS)
+cycle.exe: cycle.o 	
+	$(CC) -g -Wall cycle1.o cycle.o alloc.o linkedlist.o -o $@ $(LFLAGS)
 clean:
 	rm -rf *.o
 	rm -rf *.exe
 	rm -rf *.txt
+	rm -rf *.xlsx
