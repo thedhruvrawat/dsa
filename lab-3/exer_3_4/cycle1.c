@@ -1,12 +1,6 @@
 // Hare and Tortoise Algorithm
 #include "cycle.h"
 
-int isAhead(NODE a, NODE b) {
-    if(b==a && b!=NULL && a!=NULL)
-        return 1;       //If a is ahead of b, return 1
-    return 0;
-}
-
 int testCyclic(LIST Ls) {
     if(Ls->count < 2) return 0;	
 	else if(Ls->count == 2) {

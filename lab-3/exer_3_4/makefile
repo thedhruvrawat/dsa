@@ -7,9 +7,12 @@ all: $(FILENAME) cycle.exe
 %.o: %.c
 	$(CC) -c -g -Wall $< -o $@ $(LFLAGS)
 cycle.exe: cycle.o 	
-	$(CC) -g -Wall cycle1.o cycle.o alloc.o linkedlist.o -o $@ $(LFLAGS)
+	$(CC) -pg -g -Wall cycle1.o cycle.o alloc.o linkedlist.o -o $@ $(LFLAGS)
 clean:
 	rm -rf *.o
 	rm -rf *.exe
 	rm -rf *.txt
 	rm -rf *.xlsx
+	rm -rf *.out
+	rm -rf prof_output
+	rm -rf prof_output_hare

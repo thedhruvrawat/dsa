@@ -41,3 +41,10 @@ N: 1813655, elapsed time: 9.925000 ms. & heap space: 29018496
 
 > Note: All these observations will automatically be stored in `observations.xlsx` file created automatically. The number of observations has been set to 100.
 
+For measuring the time using `gprof` use the following command -
+```
+❯ gprof cycle.exe gmon.out > prof_output
+```
+This will create a file `prof_output` containing the flat profile and function-wise time taken by the ptogram.
+
+**Link to the observations file:** https://docs.google.com/spreadsheets/d/1c66HHV47ta52AMAU7nqV6TQzmAMwpkK7n8btwuRGAO0/edit?usp=sharing 
