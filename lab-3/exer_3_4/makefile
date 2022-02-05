@@ -12,7 +12,6 @@ clean:
 	rm -rf *.o
 	rm -rf *.exe
 	rm -rf *.txt
-	rm -rf *.xlsx
+	rm -rf observations.xlsx
 	rm -rf *.out
 	rm -rf prof_output
-	rm -rf prof_output_hare
