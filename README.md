@@ -11,5 +11,6 @@ This repository contains all the laboratory coursework for the course **CS F211:
 | 2  | Command Line Arguments, Compiling and Linking C files, File I/O, Pointers, Linked Lists | [Lab 2](lab-2/labsheet.pdf) | 29 Jan 2022 |
 | 3  | Runtime Memory Layout and Heap Allocation, Linked Lists, Measuring Running Time and Space Usage | [Lab 3](lab-3/labsheet.pdf) | 5 Feb 2022 |
 | 4  | Abstract Data Type, Linked Lists, Measuring Run Time | [Lab 4](lab-4/labsheet.pdf) | 12 Feb 2022 |
+| 5  | Recursion, Measurements: Running Time and Space Usage, Insertion Sorting, File I/O, and Build Tool - Makefile | [Lab 5](lab-5/labsheet.pdf) | 19 Feb 2022 |
 
 
