@@ -9,7 +9,7 @@ QUEUE newQ() {
 }
 
 Boolean isEmptyQ(QUEUE q) {
-    return q->head == NULL;
+    return q == NULL || q->head == NULL;
 }
 
 QUEUE delQ(QUEUE q) {
@@ -41,7 +41,7 @@ QUEUE addQ(QUEUE q, Element e) {
 }
 
 int lengthQ(QUEUE q) {
-    return q->size;
+    return q?q->size:0;
 }
 
 // int main() {
