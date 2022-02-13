@@ -1,5 +1,4 @@
 #include "multiq.h"
-// #define MAX_PRIORITY 10
 
 MultiQ createMQ(int num) {
     MultiQ list = (MultiQ)malloc(sizeof(QUEUE) * (num+1));
@@ -39,6 +38,7 @@ MultiQ delNextMQ(MultiQ mq) {
     for(int i = 0 ; i < MAX_PRIORITY ; i++){
 		if(!isEmptyQ(mq[i])){
 			mq[i] = delQ(mq[i]);
+            return mq;
 		}
 	}
 	return mq;
