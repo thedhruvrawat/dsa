@@ -1,0 +1,29 @@
+#ifndef __RECORD_H
+#define __RECORD_H
+
+#define DELIM ","
+
+#include <stdio.h>
+#include <stdlib.h>
+
+
+// typedef struct recordList* RECORDLIST;
+
+typedef struct {
+    unsigned long long CardNum;
+    char BankCode[6];
+    char FirstName[50];
+    char LastName[50];
+    char ExpiryDate[8];
+} record;
+
+typedef record* RECORD;
+
+// struct recordList {
+//     unsigned int count;
+//     RECORD rec;
+// };
+
+RECORD insertRec(RECORD rec, char *fileName, int *final_size);
+
+#endif
