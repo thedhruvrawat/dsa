@@ -36,17 +36,13 @@ int main() {
         
         fprintf(f, "Read %d records in %f ms.\n", size, elapsedTime);
         fclose(f);
-        // printf("Initially\n");
-        // RECORD a = rec_array;
-        // printList(rec_array, size);
+
         long long int STACK_BOTTOM;
-     //    RECORD a = rec_array;
+
         gettimeofday(&t1, NULL);
         rec_array = insertionSort(rec_array, size);
         gettimeofday(&t2, NULL);
         printf("Stack size is %d\n", (long long int)&STACK_BOTTOM - STACK_TOP);
-
-        
 
         elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
         elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;
@@ -58,6 +54,5 @@ int main() {
         fclose(ftime);
         fclose(fspace);
         printf("--------------------------------------------------------------------------------\n");
-        // printList(a, size);
    }
 }

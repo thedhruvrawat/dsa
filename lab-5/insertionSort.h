@@ -3,7 +3,7 @@
 
 #include "record.h"
 
-RECORD insertInOrder(record *arr, int index);
-RECORD insertionSort(record *arr, int size);
+RECORD insertInOrder(RECORD arr, int index);
+RECORD insertionSort(RECORD arr, int size);
 
 #endif

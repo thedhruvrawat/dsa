@@ -4,9 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-// typedef struct recordList* RECORDLIST;
-
 typedef struct {
     unsigned long long CardNum;
     char BankCode[6];
@@ -16,11 +13,6 @@ typedef struct {
 } record;
 
 typedef record* RECORD;
-
-// struct recordList {
-//     unsigned int count;
-//     RECORD rec;
-// };
 
 RECORD insertRec(RECORD rec, char *fileName, int *final_size);
 void printList(RECORD head, int size);
