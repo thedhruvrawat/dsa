@@ -1,8 +1,6 @@
 #ifndef __RECORD_H
 #define __RECORD_H
 
-#define DELIM ","
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -25,5 +23,6 @@ typedef record* RECORD;
 // };
 
 RECORD insertRec(RECORD rec, char *fileName, int *final_size);
+void printList(RECORD head, int size);
 
 #endif

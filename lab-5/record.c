@@ -16,18 +16,24 @@ RECORD insertRec(RECORD rec, char* fileName, int* final_size) {
 
     while(!feof(f)) {
         fscanf(f, "\"%lld, %5s, %7s, %5s, %5s\"\n", &temp.CardNum, temp.BankCode, temp.ExpiryDate, temp.FirstName, temp.LastName);
-        rec[i] = temp;
+        rec[i++] = temp;
         // printf("%lld, %s, %s, %s, %s\n", temp.CardNum, temp.BankCode, temp.ExpiryDate, temp.FirstName, temp.LastName);
-        if (i == size)
-        {
-            printf("Expanding size from %d to ", size);
+        if (i == size) {
+            // printf("Expanding size from %d to ", size);
             size *= 5;
-            printf("%d.\n", size);
+            // printf("%d.\n", size);
             rec = realloc(rec, sizeof(record) * size);
         }
-        i++;
+        // i++;
     }
     fclose(f);
     *final_size = i;
     return rec;
+}
+
+void printList(RECORD head, int size) {
+    while(size--) {
+        printf("%lld, %s, %s, %s, %s\n", head->CardNum, head->BankCode, head->ExpiryDate, head->FirstName, head->LastName);
+        head++;
+    }
 }

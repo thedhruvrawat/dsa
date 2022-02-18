@@ -1,0 +1,11 @@
+Sorted 10 records taking 468 space
+Sorted 100 records taking 4788 space
+Sorted 1000 records taking 47988 space
+Sorted 2500 records taking 119988 space
+Sorted 5000 records taking 239988 space
+Sorted 7500 records taking 359988 space
+Sorted 10000 records taking 479988 space
+Sorted 25000 records taking 1199988 space
+Sorted 50000 records taking 2399988 space
+Sorted 75000 records taking 3599988 space
+Sorted 100000 records taking 4799988 space
