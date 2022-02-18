@@ -15,7 +15,7 @@ int main() {
 
 
    for (int i = 0; i < 11; i++) {
-        strcpy(input, "generated/");
+        strcpy(input, "input/");
         strcat(input, check_str[i]);
 
         printf("Performing time and space measurements on input file %s...\n", input);
