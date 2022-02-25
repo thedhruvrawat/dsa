@@ -12,5 +12,6 @@ This repository contains all the laboratory coursework for the course **CS F211:
 | 3  | Runtime Memory Layout and Heap Allocation, Linked Lists, Measuring Running Time and Space Usage | [Lab 3](lab-3/labsheet.pdf) | 5 Feb 2022 |
 | 4  | Abstract Data Type, Linked Lists, Measuring Run Time | [Lab 4](lab-4/labsheet.pdf) | 12 Feb 2022 |
 | 5  | Recursion, Measurements: Running Time and Space Usage, Insertion Sorting, File I/O, and Build Tool - Makefile | [Lab 5](lab-5/labsheet.pdf) | 19 Feb 2022 |
+| 6  | Recursion vs. Iteration - Running Time and Space Usage, File I/O and Sorting Large data | [Lab 6](lab-6/labsheet.pdf) | 26 Feb 2022 |
 
 
