@@ -15,20 +15,20 @@ int main() {
 
     ELIST temp = Ls;
 
-    int id_count = 0;
+    int cnt = 0;
 
-    while(fscanf(f, "%[^,], %lf", temp->name, &temp->cgpa) > 1){
+    while(fscanf(f, "%[^,], %f", temp->name, &temp->cgpa) > 1){
         //printf("%s, %0.2lf", temp->name, temp->cgpa);
-        id_count++;
+        cnt++;
         temp++;
     }
 
-    mergeSort(Ls, id_count);
+    iterativeMS(Ls, cnt);
     temp = Ls;
 
     int i = 0;
-    while (i < id_count) {
-        printf("%s, %0.2lf\n", temp->name, temp->cgpa);
+    while (i < cnt) {
+        printf("%s, %0.2lf", temp->name, temp->cgpa);
         temp++;
         i++;
     }

@@ -28,21 +28,21 @@ int main() {
 
         ELIST temp = ls;
 
-        int id_count = 0;
+        int cnt = 0;
 
-        while(fscanf(fptr, "%[^,], %lf", temp->name, &temp->cgpa) > 1){
+        while(fscanf(fptr, "%[^,], %f", temp->name, &temp->cgpa) > 1){
             //printf("%s, %0.2lf", temp->name, temp->cgpa);
 
-            id_count++;
+            cnt++;
             temp++;
         }
 
-        int STACK_BOTTOM;
+        int ITER_STACK_BOTTOM;
 
         gettimeofday(&t1, NULL);
-        iterativeMS(ls, id_count);
+        iterativeMS(ls, cnt);
         gettimeofday(&t2, NULL);
-        printf("Stack size for sorting %d elements using Iterative MS is %d\n", fname, (int)&STACK_BOTTOM - STACK_TOP);
+        printf("Stack size for sorting %d elements using Iterative MS is %d\n", fname, (int)&ITER_STACK_BOTTOM - STACK_TOP);
 
         elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
         elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;
@@ -52,7 +52,7 @@ int main() {
 
         // Uncomment to check sorted list contents
         // int i = 0;
-        // while (i < id_count)
+        // while (i < cnt)
         // {
         //     printf("%s, %0.2lf", temp->name, temp->cgpa);
         //     temp++;
@@ -81,21 +81,22 @@ int main() {
 
         ELIST temp = ls;
 
-        int id_count = 0;
+        int cnt = 0;
 
-        while(fscanf(fptr, "%[^,], %lf", temp->name, &temp->cgpa) > 1){
+        while(fscanf(fptr, "%[^,], %f", temp->name, &temp->cgpa) > 1){
             //printf("%s, %0.2lf", temp->name, temp->cgpa);
 
-            id_count++;
+            cnt++;
             temp++;
         }
 
-        int STACK_BOTTOM;
+        int REC_STACK_BOTTOM;
 
+        //RECURSIVE MERGE SORT
         gettimeofday(&t1, NULL);
-        recursiveMS(ls, id_count);
+        recursiveMS(ls, cnt);
         gettimeofday(&t2, NULL);
-        printf("Stack size for sorting %d elements using Recursive MS is %d\n", fname, (int)&STACK_BOTTOM - STACK_TOP);
+        printf("Stack size for sorting %d elements using Recursive MS is %d\n", fname, (int)&REC_STACK_BOTTOM - STACK_TOP);
 
         elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
         elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;
@@ -105,7 +106,7 @@ int main() {
 
         // Uncomment to check sorted list contents
         // int i = 0;
-        // while (i < id_count)
+        // while (i < cnt)
         // {
         //     printf("%s, %0.2lf", temp->name, temp->cgpa);
         //     temp++;
