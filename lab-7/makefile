@@ -7,7 +7,7 @@ all: $(FILENAME) main
 %.o: %.c
 	$(CC) -c -g $< -o $@ $(LFLAGS)
 main: main.o 	
-	$(CC) -g *.o -o $@ $(LFLAGS)
+	$(CC) -g main.o quickSort.o stack.o -o $@ $(LFLAGS)
 clean:
 	rm -rf *.o
 	rm -rf *.exe

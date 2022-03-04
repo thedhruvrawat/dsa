@@ -171,7 +171,7 @@ int estimateCutoff(EMP_LIST Ls, int n) {
         if(tval[1]-tval[0]>0.0)
             min = mid + 1;
         else if(tval[1]-tval[0]<0.0)
-            max = mid - 1;
+            max = mid + 1;
         else
             return mid;    
     }
@@ -180,7 +180,7 @@ int estimateCutoff(EMP_LIST Ls, int n) {
 void printSortedList(EMP_LIST Ls, int size, FILE *f) {
     if(f==NULL)
         printf("ERR!\n");
-    printf("Sorting %d records\n", size);
+    printf("-------------------------------------------\nSorting %d records\n", size);
     for (int i = 0; i<size; i++) {
         fprintf(f, "%s %ld\n", (Ls + i)->name, (Ls + i)->empID);
     }
@@ -205,6 +205,6 @@ int main(int argc, char *argv[]) {
     printSortedList(Ls, n, fwrite);
     double elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
     elapsedTime += (t2.tv_usec-t1.tv_usec)/1000.0;
-    printf("For %d records, elapsed Time = %f, estimated cutoff = %d\n", n, elapsedTime, cutoff);
+    printf("For %d records, elapsed time = %f, estimated cutoff = %d\n", n, elapsedTime, cutoff);
     fclose(fread);
 }

@@ -2,7 +2,7 @@
 #include <math.h>
 #include <sys/time.h>
 
-#define MAX_SZ 50000 //Set max number of records to be read here (for inputs 10^5, 10^6, 10^7)
+#define MAX_SZ 10000 //Set max number of records to be read here (for inputs 10^5, 10^6, 10^7)
 
 void testRun(EMP_LIST Ls, int n, double tval[]) {
     struct timeval t1, t2, t3;
@@ -13,7 +13,6 @@ void testRun(EMP_LIST Ls, int n, double tval[]) {
         Ls2[i] = Ls[i];
     }
     if(n>0) {
-        // printf("\t %d", n);
         gettimeofday(&t1,NULL);
         quickSort(Ls1, n, 0);
         gettimeofday(&t2,NULL);
@@ -40,18 +39,16 @@ int estimateCutoff(EMP_LIST Ls, int n) {
         if(tval[1]-tval[0]>0.0)
             min = mid + 1;
         else if(tval[1]-tval[0]<0.0)
-            max = mid - 1;
+            max = mid + 1;
         else
             return mid;    
     }
 }
 
 void printSortedList(EMP_LIST Ls, int size, FILE *f) {
-    // printf("%s\n", output);
-    // FILE *f = fopen(output, "w");
     if(f==NULL)
         printf("ERR!\n");
-    printf("Sorting %d records\n", size);
+    printf("-------------------------------------------\nSorting %d records\n", size);
     for (int i = 0; i<size; i++) {
         fprintf(f, "%s %ld\n", (Ls + i)->name, (Ls + i)->empID);
     }
@@ -64,22 +61,18 @@ int main(int argc, char *argv[]) {
     FILE *fwrite = fopen(argv[2], "w");
     int sz = atoi(argv[3]);
     int n = MIN(MAX_SZ, sz);
-    // printf("n is %d\n", n);
     employee Ls[n];
     int i = 0;
     while(fscanf(fread,"%s %ld", Ls[i].name, &Ls[i].empID) != -1 && i<n) {
-		// printf("%s %ld\n", Ls[i].name, Ls[i].empID);
 		i++;
 	}
     n = i;
-    // printf("now n is %d\n", n);
     int cutoff = estimateCutoff(Ls, n);
     gettimeofday(&t2, NULL);
     quickSort(Ls, n, 0);
     printSortedList(Ls, n, fwrite);
     double elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
     elapsedTime += (t2.tv_usec-t1.tv_usec)/1000.0;
-    printf("For %d records, elapsed Time = %f, estimated cutoff = %d\n", n, elapsedTime, cutoff);
-	// printf("cutoff = %d\n", cutoff);
+    printf("For %d records, elapsed time = %f, estimated cutoff = %d\n", n, elapsedTime, cutoff);
     fclose(fread);
 }
