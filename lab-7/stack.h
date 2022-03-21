@@ -4,24 +4,24 @@
 #include "record.h"
 
 typedef struct {
-    int low;
-    int high;
+    int lo;
+    int hi;
 } PAIR;
 
 typedef struct {
 	PAIR* array;
-	int top;
-	int size;
+	int stack_top;
+	int stack_size;
 } STACK;
 
 typedef enum Boolean{FALSE=0, TRUE}Boolean;
 
-STACK *createStack();
-Boolean isEmpty(STACK *st);
-Boolean isFull(STACK *st);
-STACK *push(STACK *st, PAIR p);
-void pop(STACK *st);
-PAIR top(STACK *st);
-STACK *resize(STACK *st);
+STACK* createEmptyStack();
+Boolean isStackEmpty(STACK *st);
+Boolean isStackFull(STACK *st);
+STACK* pushToStack(STACK *st, PAIR p);
+void popFromStack(STACK *st);
+PAIR stackTop(STACK *st);
+STACK *resizeStack(STACK *st);
 
 #endif

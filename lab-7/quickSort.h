@@ -7,7 +7,7 @@
 
 void swap(employee *a, employee *b);
 int partition(EMP_LIST arr, int l, int h);
-void quickSort(EMP_LIST arr, int s, int threshold);
-void insertionSort(EMP_LIST arr, int size);
+void quickSort(EMP_LIST arr, int s, int sublSize);
+void insertionSort(EMP_LIST arr, int sz);
 
 #endif

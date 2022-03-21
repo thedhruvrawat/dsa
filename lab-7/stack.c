@@ -1,46 +1,47 @@
 #include "stack.h"
 
-STACK* createStack() {
+STACK* createEmptyStack() {
     STACK *st = (STACK *)malloc(sizeof(STACK));
-    st->size = 10;
-    st->array = malloc(sizeof(PAIR) * st->size);
-    st->top = -1;
+    st->stack_size = 10;
+    st->array = malloc(sizeof(PAIR) * st->stack_size);
+    st->stack_top = -1;
     return st;
 }
 
-Boolean isEmpty(STACK* st) {
-    return (st->top == -1);
+Boolean isStackEmpty(STACK* st) {
+    return (st->stack_top == -1);
 }
 
-Boolean isFull(STACK* st) {
-    return (st->size - 1 == st->top);
+Boolean isStackFull(STACK* st) {
+    return (st->stack_size - 1 == st->stack_top);
 }
 
-STACK* push(STACK* st, PAIR p) {
-    if(isFull(st))
-        resize(st);
-    st->array[++st->top] = p;
-    return st;
-}
-
-void pop(STACK* st) {
-    if(!isEmpty(st))
-        st->top--;
+void popFromStack(STACK* st) {
+    if(!isStackEmpty(st))
+        st->stack_top--;
     else
         printf("STACK UNDERFLOW!\n");
 }
 
-PAIR top(STACK* st) {
-    PAIR temp;
-    temp.low = -1;
-    temp.high = -1;
-    if(isEmpty(st))
+PAIR stackTop(STACK* st) {
+    PAIR temp;    
+    if(isStackEmpty(st)) {
+        temp.lo = -1, temp.hi = -1;
         return temp;
-    return st->array[st->top];
+    }
+    return st->array[st->stack_top];
 }
 
-STACK* resize(STACK* st) {
-    st->array = (PAIR *)(realloc((st->array), sizeof(PAIR) * st->size * 2));
-    st->size *= 2;
+STACK* resizeStack(STACK* st) {
+    st->stack_size *= 2;
+    st->array = (PAIR *)(realloc((st->array), sizeof(PAIR) * st->stack_size * 2));
+    return st;
+}
+
+
+STACK* pushToStack(STACK* st, PAIR p) {
+    if(isStackFull(st))
+        resizeStack(st);
+    st->array[++st->stack_top] = p;
     return st;
 }
