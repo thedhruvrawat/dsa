@@ -15,12 +15,12 @@ For n = 1000000,
         HEAP SORT       = 542.374 sec
         QUICK SORT      = 219.248 sec
         MERGE SORT      = 279.902 sec
-        INSERTION SORT  =  sec
+        INSERTION SORT  = didn't complete
 For n = 10000000,
         HEAP SORT       = 13005.444 sec
         QUICK SORT      = 5166.102 sec
         MERGE SORT      = 5370.120 sec
-        INSERTION SORT  =  sec
+        INSERTION SORT  = didn't complete
 */
 
 
